@@ -1,0 +1,9 @@
+if ($('#subscribe-area').length) {
+  document.getElementById("subscribe-area").innerHTML = "<b>Subscribed</b></br><%= escape_javascript(link_to 'Unsubscribe?', unsubscribe_subreddit_path(@subreddit.id), remote: true, class: 'btn btn-small btn-danger') %>"
+}
+
+else if ($('#<%="#{@subreddit.id}"%>').length) {
+  document.getElementById(<%="#{@subreddit.id}"%>).innerHTML = "<%= escape_javascript(render partial: 'index_subscribe', locals: { sub: @subreddit }) %>";
+}
+
+$('#top_div').load(document.URL +  ' #top_div');

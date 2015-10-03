@@ -1,0 +1,12 @@
+<div class="col-xs-12 no-padding span7 text-center subscription-counters">
+  <%= sub.users.count %>
+</div>
+<div class="col-xs-12 no-padding span7 text-center">
+  <% if sub.users.include?(current_user) %>
+    <b>Subscribed</b></br>
+    <%= link_to "Unsubscribe?", unsubscribe_subreddit_path(sub.id), remote: true, class: "btn btn-small btn-danger subscribe-buttons" %>
+  <% else %>
+    <b>Not subscribed</b></br>
+    <%= link_to "Subscribe?", subscribe_subreddit_path(sub.id), remote: true, class: "btn btn-small btn-danger subscribe-buttons" %>
+  <% end %>
+</div>

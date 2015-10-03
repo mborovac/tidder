@@ -1,0 +1,54 @@
+<div class="col-xs-12 fifth-of-a-page">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+</div>
+<div class="col-xs-12 fifth-of-a-page">
+  <div class="col-xs-1">
+  </div>
+  <div class="col-xs-3">
+    <b><font size="6">Tidder</font></br>
+    <font color="red">INFINUM</font> STUDENT ACADEMY</br></b>
+    REDDIT CLONE PROJECT
+  </div>
+</div>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="col-xs-12 login-form no-padding" id="login-area">
+
+    <div class="col-xs-12 text-center">
+      <h2><b>Sign-in</b></h2>
+    </div>
+
+    <div class="col-xs-1">
+    </div>
+    <div class="col-xs-3">
+    </div>
+    <div class="col-xs-4">
+      <div class="col-xs-12">
+        E-MAIL
+        <%= f.input :email, label: false, required: true, autofocus: true, input_html: {size: 40, class: "fuzzy-borders"} %>
+      </div>
+
+      <div class="col-xs-12 top-margin">
+        PASSWORD
+        <%= f.input :password, label: false, required: true, autocomplete: "off", input_html: {size: 40, class: "fuzzy-borders bottom-margin"} %>
+        <% if devise_mapping.rememberable? %>
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        <% end %>
+      </div>
+
+      <div class="col-xs-12">
+        <p><%= render "devise/shared/links" %></p>
+      </div>
+    </div>
+    <div class="col-xs-4">
+    </div>
+  </div>
+  <div class="col-xs-12 fifth-of-a-page text-center">
+    <div class="col-xs-12">
+      <%= f.button :submit, "sign-in", class: "btn btn-small btn-danger bottom-margin top-margin" %>
+    </div>
+  </div>
+<% end %>
+<div class="col-xs-12 fifth-of-a-page">
+</div>

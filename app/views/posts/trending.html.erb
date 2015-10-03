@@ -1,0 +1,3 @@
+<% @posts.each do |post| %>
+  <%= link_to post.title, subreddit_path(post.id) %></br></br>
+<% end %>

@@ -1,0 +1,256 @@
+@import 'bootstrap';
+
+a {
+  color: black;
+
+  &:hover {
+    color: black;
+    text-decoration: none;
+  }
+
+  &:active {
+    color: red;
+    text-decoration: none;
+  }
+}
+
+.btn {
+  margin: 2px;
+}
+
+.well {
+  background-color: white;
+  border-style: solid;
+  border-left-color: #B80000;
+  border-right: none;
+  border-bottom: none;
+  border-width: 3px;
+}
+
+.list-group {
+  padding-left: 2px;
+  margin-bottom: 0px;
+}
+
+.list-group-item {
+  border-style: solid;
+  border-top-color: #CFCFCF;
+  border-right: none;
+  border-bottom-color: #CFCFCF;
+  border-left: none;
+  background-color: #F7F7F7;
+  border-radius: 0px !important;
+
+  .upvote-buttons {
+    visibility: hidden;
+  }
+
+  .subscribe-buttons {
+    visibility: hidden;
+  }
+
+  &:hover {
+    border-style: solid;
+    border-top-color: #CFCFCF;
+    border-top-width: 0px;
+    border-right: none;
+    border-bottom-color: #CFCFCF;
+    border-bottom-width: 3px;
+    border-left: none;
+    background-color: white;
+
+    .upvote-counters {
+      color: red;
+    }
+
+    .subscription-counters {
+      color: red;
+    }
+
+    .upvote-buttons {
+      visibility: visible;
+    }
+
+    .subscribe-buttons {
+      visibility: visible;
+    }
+  }
+}
+//
+// .list-group-item:hover {
+//   border-style: solid;
+//   border-top-color: #CFCFCF;
+//   border-top-width: 0px;
+//   border-right: none;
+//   border-bottom-color: #CFCFCF;
+//   border-bottom-width: 3px;
+//   border-left: none;
+//   background-color: white;
+//
+//   .upvote-counters {
+//     color: red;
+//   }
+//
+//   .upvote-buttons {
+//     visibility: visible;
+//   }
+//
+//   .subscribe-buttons {
+//     visibility: visible;
+//   }
+// }
+
+.no-padding {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.no-margin {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.top-margin {
+  margin-top: 20px;
+}
+
+.bottom-margin {
+  margin-bottom: 20px;
+}
+
+.fuzzy-borders {
+  box-shadow: 1px 3px 5px #888888;
+  border-radius: 5px;
+}
+
+textarea {
+  resize: none;
+}
+
+.fifth-of-a-page {
+  height: 150px;
+  background-color: #F7F7F7;
+}
+
+#main-content-div {
+  border-style: solid;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  border-left-color: #B80000;
+  border-width: 3px;
+}
+
+#top_div {
+  background-color: #CFCFCF;
+}
+
+#middle_div {
+  background-color: white;
+  border-style: solid;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom-color: #EBEBEB;
+  border-bottom-width: 2px;
+}
+
+#project_name_div {
+  border-style: solid;
+  border-top: none;
+  border-right-color: #EBEBEB;
+  border-bottom: none;
+  border-left: none;
+  border-width: 2px;
+}
+
+#page_name_div {
+  border-style: solid;
+  border-top: none;
+  border-left: none;
+  border-bottom: none;
+  border-right-color: #B80000;
+  border-width: 3px;
+}
+
+#options_div {
+}
+
+#logout-button {
+  border:0px solid transparent;
+}
+
+#bottom_div {
+  background-color: white;
+}
+
+#login-area {
+  min-height: 180px;
+  background-color: white;
+  border-style: solid;
+  border-width: 3px;
+  border-bottom-color: #CCCCCC;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+#list_div {
+  background-color: white;
+  border-style: solid;
+  border-width: 3px;
+  border-right-color: #CCCCCC;
+  border-top: none;
+  border-left: none;
+  border-bottom: none;
+}
+
+#subscribe_and_description {
+}
+
+#subscribe-area {
+  background-color: white;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #CCCCCC;
+  border-left-color: #d9534f;
+  border-left-width: 4px;
+  border-radius: 8px;
+  margin-top: 1em;
+  padding: 8px;
+}
+
+#post_content_div {
+  border-style: solid;
+  border-top-color: #CFCFCF;
+  border-top-width: 0px;
+  border-right: none;
+  border-bottom-color: #CFCFCF;
+  border-bottom-width: 3px;
+  border-left: none;
+  background-color: white;
+}
+
+#post_comments_div {
+  border-style: solid;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom-color: #CFCFCF;
+  border-bottom-width: 1px;
+  background-color: #F7F7F7;
+}
+
+#subreddit_name_div, #post_title_div{
+  background-color: white;
+  border-style: solid;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom-color: #CFCFCF;
+  border-bottom-width: 3px;
+}
+
+#subreddit_description_div, #change_post_content_div {
+  background-color: #F7F7F7;
+}

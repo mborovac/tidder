@@ -1,0 +1,27 @@
+<%= simple_form_for [@subreddit, @post] do |f| %>
+  <div class="col-xs-12" id="post_title_div">
+    <div class="col-xs-2">
+    </div>
+    <div class="col-xs-10">
+      </br>
+      <p><font size="5"><b>Post title</b></font></p>
+      Be descriptive. Be polite. Be nice. Be. Bee. Beep-beep.
+      <%= f.input :title, label: false, placeholder: " Your post's title goes here", autofocus: true, input_html: {size: 50, class: "fuzzy-borders bottom-margin"} %>
+      <p></p>
+    </div>
+  </div>
+  <div class="col-xs-12" id="change_post_content_div">
+    <div class="col-xs-2">
+    </div>
+    <div class="col-xs-10">
+      <p></p>
+      <p><font size="5">Post content</font></p>
+      <p>Beep-Beep, I'm a Jeep.</p>
+      <div class="span7 text-center">
+        <%= f.input :content, label: false, placeholder: "Post content goes here", input_html: {rows: 7, cols: 75, class: "fuzzy-borders"} %>
+        </br>
+        <%= f.button :submit, "submit post", class: "btn btn-small btn-danger bottom-margin" %>
+      </div>
+    </div>
+  </div>
+<% end %>

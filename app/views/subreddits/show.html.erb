@@ -1,0 +1,22 @@
+<div class="col-xs-12">
+  <% @posts.each do |post| %>
+    <ul class="list-group">
+      <li class="row list-group-item">
+        <div class="col-xs-2" id=<%="#{post.id}"%>>
+          <div class="col-xs-12 no-padding span7 text-center upvote-counters">
+            <%= post.upvotes_count || 0 %>
+          </div>
+          <div class="col-xs-12 no-padding span7 text-center">
+            <%= link_to "UPVOTE", subreddits_upvote_path(@subreddit.id, post.id), remote: true, class: "btn btn-small btn-danger upvote-buttons" %>
+          </div>
+        </div>
+        <div  class="col-xs-10">
+          <font size="4"><b><%= link_to post.title, subreddit_post_path(subreddit_id: post.subreddit.id, id: post.id) %></b></font> </br>
+          <font color="#6E6E6E">submitted<b><%= time_ago_in_words(post.created_at)%></b> ago by <font color="#B80000"><b><%= post.user.nickname || post.user.email %></b></font></br>
+          <b><%= post.comments.size %> comments</b>
+        </div>
+      </li>
+    </ul>
+  <% end %>
+</div>
+<%= will_paginate @posts %>

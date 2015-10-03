@@ -1,0 +1,13 @@
+if ($('#subscribe-area').length) {
+  document.getElementById("subscribe-area").innerHTML = "<b>Unsubscribed</b></br><%= escape_javascript(link_to 'Subscribe?', subscribe_subreddit_path(@subreddit.id), remote: true, class: 'btn btn-small btn-danger') %>"
+}
+
+else if ($('#<%="#{@subreddit.id}"%>').length) {
+  document.getElementById(<%="#{@subreddit.id}"%>).innerHTML = "<%= escape_javascript(render partial: 'index_subscribe', locals: { sub: @subreddit }) %>";
+}
+
+else if ($('#<%="settings#{@subreddit.id}"%>').length) {
+  $('#<%="settings#{@subreddit.id}"%>').remove();
+}
+
+$('#top_div').load(document.URL +  ' #top_div');

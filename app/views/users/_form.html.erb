@@ -1,0 +1,50 @@
+<%= simple_form_for @user, url: update_settings_users_path do |f| %>
+  <div>
+    <div class="col-xs-2">
+    </div>
+    <div class="col-xs-10">
+      <h3>Some random settings and checkboxes</h3>
+      </br>
+      </br>
+      <div class="col-xs-7">
+        <%= f.input :checkbox1, label: false do %>
+          <%= check_box_tag :checkbox1 %>
+          I want to test beta features
+        <% end %>
+        </br>
+        <%= f.input :checkbox2, label: false do %>
+          <%= check_box_tag :checkbox2 %>
+          Please send me nigerian prince offers
+        <% end %>
+        </br>
+        <%= f.input :checkbox3, label: false do %>
+          <%= check_box_tag :checkbox3 %>
+          Subscribe to "Enlarge your txt editor" newsletters
+        <% end %>
+        </br>
+        </br>
+        <%= f.input :gender, label: 'User gender', as: :radio_buttons, collection: User.genders.keys, checked: @user.gender %>
+      </div>
+      <div class="col-xs-5">
+        <p class="alert"><%= alert %></p>
+        <%= image_tag @user.avatar.url(:thumb) %>
+        <%= f.input :avatar, as: :file %>
+      </div>
+      <div class="col-xs-10">
+      </br>
+      <%= f.input :nickname, label: "Nickname:", placeholder: " Your nickname", input_html: {size: 30, class: "fuzzy-borders"} %>
+      </div>
+    </div>
+    <div class="col-xs-2">
+    </div>
+  </div>
+  <div>
+    <div class="col-xs-10 span7 text-center">
+      </br>
+      </br>
+      <%= f.button :submit, "Save settings", class: "btn btn-small btn-danger" %>
+      </br>
+      </br>
+    </div>
+  </div>
+<% end %>

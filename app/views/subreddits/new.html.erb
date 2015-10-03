@@ -1,0 +1,27 @@
+<%= simple_form_for @subreddit do |f| %>
+  <div class="col-xs-12" id="subreddit_name_div">
+    <div class="col-xs-2">
+    </div>
+    <div class="col-xs-10">
+      </br>
+      <p><font size="5"><b>Subreddit name</b></font></p>
+      Give me a nice descriptive name.
+      <%= f.input :name, label: false, placeholder: " Subreddit name goes here", autofocus: true, input_html: {size: 50, class: "fuzzy-borders bottom-margin"} %>
+      <p></p>
+    </div>
+  </div>
+  <div class="col-xs-12" id="subreddit_description_div">
+    <div class="col-xs-2">
+    </div>
+    <div class="col-xs-10">
+      <p></p>
+      <p><font size="5">Subreddit description</font></p>
+      <p>Describe me.</p>
+      <div class="span7 text-center">
+        <%= f.input :description, label: false, placeholder: "Subreddit description goes here", input_html: {rows: 7, cols: 75, class: "fuzzy-borders"} %>
+        </br>
+        <%= f.button :submit, "submit subreddit", class: "btn btn-small btn-danger bottom-margin" %>
+      </div>
+    </div>
+  </div>
+<% end %>

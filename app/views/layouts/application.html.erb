@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% if @title.nil? %>
+      <title>Tidder</title>
+    <% else %>
+      <title><%= @title %></title>
+    <% end %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row" id="main-content-div">
+        <% if user_signed_in? %>
+          <div role="navigation" class="navigation no-padding" id="top_div" >
+            <% if not @subreddits.nil? %>
+              <% @subreddits.each do |subreddit| %>
+                &nbsp;&nbsp;
+                <font size="2"><%= link_to subreddit.name.upcase, subreddit_path(id: subreddit.id), class: "subreddit_link" %></font>
+              <% end %>
+              &nbsp;&nbsp;
+              <%= link_to "...", subreddits_path, class: "subreddit_link" %>
+            <% end %>
+          </div>
+          <div class="col-xs-12 middle-class no-padding" id="middle_div">
+            <div class="col-xs-1 middle-class">
+            </div>
+            <%= link_to root_path, action: 'go' do %>
+              <div class="col-xs-3 middle-class" id="project_name_div">
+                </br>
+                <b><font size="6">Tidder</font></br>
+                <font size="2"> <font color="red">INFINUM</font> STUDENT ACADEMY</br></b></font>
+                <font size="3">REDDIT CLONE PROJECT</font>
+                </br>
+              </div>
+            <% end %>
+            <div class="col-xs-5 middle-class" id="page_name_div">
+              <div class="col-xs-12">
+                </br>
+                <font size="6"><%= @name %></font>
+              </div>
+              <% if @settings | @newsubreddit %>
+
+              <% elsif @newpost %>
+                <div class="col-xs-12">
+                  in subreddit <%= @subreddit.name %>
+                </div>
+              <% else %>
+                <div class="col-xs-6">
+                  <%= link_to "newest", newest_subreddits_path, class: "btn btn-small btn-danger" %> &nbsp;&nbsp;
+                  <%= link_to "trending", trending_subreddits_path, class: "btn btn-small btn-default" %>
+                </div>
+              <% end %>
+            </div>
+            <div class="col-xs-3 middle-class" id="options_div">
+              </br>
+              <div class="span7 text-center">
+                Logged in as: <b><%= @current_user.nickname || @current_user.email %></b></br>
+              </div>
+              <div class="col-xs-6">
+                <% if @disabled.nil? %>
+                  <%= link_to "new post", new_subreddit_post_path(@subreddit.id), class: "btn btn-small btn-danger option-buttons" %>
+                <% else %>
+                  <button class="btn btn-small btn-default option-buttons" disabled="disabled">new post</button>
+                <% end %>
+              </div>
+              <div class="col-xs-6">
+                <%= link_to "settings", settings_users_path, class: "btn btn-small btn-default option-buttons" %>
+              </div>
+              <div class="col-xs-6">
+                <%= link_to "new subreddit", new_subreddit_path, class: "btn btn-small btn-default option-buttons" %>
+              </div>
+              <div class="col-xs-6">
+                <%= link_to "Logout?", destroy_user_session_path, method: "delete", class: "btn btn-small btn-default option-buttons", id: "logout-button" %>
+              </div>
+              </br>
+              </br>
+              </br>
+              </br>
+            </div>
+          </div>
+          <div class="col-xs-12 no-padding" id="bottom_div">
+            <% if @subreddit %>
+              <div class="col-xs-9 content-class no-padding" id="list_div">
+                <%= yield %>
+              </div>
+              <div class="col-xs-3 content-class" id="subscribe_and_description">
+                <% if @frontpage.nil? %>
+                  <div class="col-xs-10" id="subscribe-area">
+                    <% if not @subscribed %>
+                      <b>Not subscribed</b></br>
+                      <%= link_to "Subscribe?", subscribe_subreddit_path(@subreddit.id), remote: true, class: "btn btn-small btn-danger" %>
+                    <% else %>
+                      <b>Subscribed</b></br>
+                      <%= link_to "Unsubscribe?", unsubscribe_subreddit_path(@subreddit.id), remote: true, class: "btn btn-small btn-danger" %>
+                    <% end %>
+                  </div>
+                <% end %>
+                <div class="col-xs-12">
+                </br><font size="4"><b>Description:</b></font></br></br>
+                  <%= @subreddit.description || "No description at the moment" %>
+                </div>
+              </div>
+            <% else %>
+              <div class="col-xs-12 no-padding">
+                <%= yield %>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="col-xs-12 no-padding">
+            <%= yield %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <%= debug(params) if Rails.env.development? %>
+  </body>
+</html>

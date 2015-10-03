@@ -1,0 +1,2 @@
+document.getElementById(<%="#{@post.id}"%>).innerHTML = '<div class="col-xs-12 no-padding span7 text-center upvote-counters"> <%= @post.upvotes_count  || 0 %> </div>'
+document.getElementById(<%="#{@post.id}"%>).innerHTML += '<div class="col-xs-12 no-padding span7 text-center"> <%= escape_javascript(link_to "UPVOTE", subreddits_upvote_path(@subreddit.id, @post.id), remote: true, class: "btn btn-small btn-danger upvote-buttons") %> </div>'
