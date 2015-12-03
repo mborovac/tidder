@@ -15,6 +15,11 @@ module Api
         error! :unauthenticated if @user.nil?
       end
 
+      def authenticate2!
+        error! :unauthenticated unless authenticate_with_http_token do |token, options|
+          User.exists?(token: token)
+        end
+      end
     end
   end
 end
