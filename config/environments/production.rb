@@ -81,17 +81,18 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'tidder.herokuapp.com' }
 
   #These settings are for the sending out email for active admin and consequently the devise mailer
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.perform_deliveries = true
-  ActionMailer::Base.raise_delivery_errors = true
-  ActionMailer::Base.smtp_settings =
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings =
     {
-      :address            => 'smtp.gmail.com',
-      :port               => 587,
-      :domain             => 'gmail.com', #you can also use google.com
-      :authentication     => :plain,
-      :user_name          => 'tidder.heroku@gmail.com',
-      :password           => 'donotreply'
+      address:          'smtp.gmail.com',
+      port:             587,
+      domain:           'gmail.com', #you can also use google.com
+      authentication:   :plain,
+      enable_starttls:  true,
+      user_name:        'tidder.heroku@gmail.com',
+      password:         'donotreply'
     }
 
 end
